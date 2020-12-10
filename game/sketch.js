@@ -1,3 +1,4 @@
+//how do i get game to show in local host, its only showing the code
 let stars = [];
 
 let me = [];
