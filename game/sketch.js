@@ -13,16 +13,24 @@ function setup() {
 
 function draw(){
     background(8, 39, 89);
+    stars(random(600),random(400));
 
     me.drawMe();
     me.moveMe();
-}
 
-//if (frameCount % 25 == 0) {
-    //let  b = new Stars(width, random(0,height), -3);
-  //  stars.push(b);
+
+//if (frameCount % 25 == 0) { how do you get stars to come from top and not left side?
+    //let  s = new Stars(width, random(0,height), -3);
+  //  stars.push(s);
   //  console.log(stars); //print the balls array to the console
 //  } acts for when the stars enter screen
+
+for (let i = 0; i < stars.length; i++) {//would it be more convenient and organized to create a function for this? esp if we will use this for planets
+        stars[i].drawStar();
+        stars[i].moveStar();
+    //    stars[i].bounceStar(); set to something that makes stars disapear
+  }
+}
 
 class planet(){
 
@@ -34,6 +42,10 @@ class planet(){
     fill(224, 141, 65)
     circle(200,200,175)
 }
+
+  //movePlanet(){
+    //same code as stars
+//  }
 }
 
 class moon(){
@@ -50,6 +62,10 @@ class moon(){
     ellipse(120,230,10,30)//far bottom left
     ellipse(250,130,20,25)
   }
+
+//  moveMoon(){
+//same code as stars
+//  }
 }
 
 class rocket {
@@ -109,7 +125,7 @@ moveMe(){
 }
 
 class stars {
-
+//
   constructor(x,y, speed){
 		this.x = x;
     this.y = y;
@@ -117,19 +133,18 @@ class stars {
 	}
 
   drawStars(){
-    strokeWeight(1);
-    fill(50,150,60);
-    ellipse(this.x,this.y,20,20);//change to star shape later
+    textSize(50)//should this be a function?
+    text("⭐",x,y);
   }
 
   moveStars(){
     this.x = this.x+ this.speed;
-    this.y = this.y+.5;
+    this.y = this.y+ this.speed;
   }
 
-  bounceStars(){
-      if (this.x >= me.x-10 && this.x <= me.x+10 && this.y > me.y-40 && this.y < me.y+80){
-          this.speed = -this.speed;
-      }
-  }
+  //bounceStars(){ set to something that makes stars disapear
+  //  if (this.x >= me.x-10 && this.x <= me.x+10 && this.y > me.y-40 && this.y < me.y+80){
+        //  this.speed = -this.speed;
+  //   }
+//  }
 }
