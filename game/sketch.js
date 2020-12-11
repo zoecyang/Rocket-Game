@@ -175,3 +175,96 @@ class Star {
         //  this.speed = -this.speed;
   //   }
 //  }
+
+class Planetone{
+
+  constructor(x,y, speed){
+        this.x = x;
+        this.y = y;
+        this.speed = speed;
+      }
+
+
+  draw(){
+    fill("lavender");
+    ellipse(200,200,200);
+  fill("purple");
+  ellipse(180,150,90,30);
+  ellipse(230,240,90,30);
+  }
+}
+
+class Planettwo{
+
+    constructor(x,y, speed){
+          this.x = x;
+          this.y = y;
+          this.speed = speed;
+        }
+
+
+draw(){
+    fill("crimson");
+    ellipse(200,200,200);
+
+    fill("pink");  ellipse(180,250,100,40);
+
+
+    ellipse(230,160,90,30);
+  }
+}
+
+class Planetthree{
+
+  constructor(x,y, speed){
+        this.x = x;
+        this.y = y;
+        this.speed = speed;
+  }
+
+  draw(){
+    fill("turquoise");
+  ellipse(200,200,200);
+  fill("blue");  ellipse(160,180,50,60);
+  ellipse(250,220,80,40);
+  circle(160,250,50)
+  }
+}
+
+class Planetfour{
+
+  constructor(x,y, speed){
+        this.x = x;
+        this.y = y;
+        this.speed = speed;
+  }
+
+  draw(){
+    fill("yellow");
+  circle(200,200,200);
+  fill("gold");  ellipse(260,180,50,40);
+  ellipse(160,220,40,100);
+  circle(220,250,50)
+  }
+}
+
+class Planetfive{
+
+  constructor(x,y, speed){
+        this.x = x;
+        this.y = y;
+        this.speed = speed;
+  }
+
+  draw(){
+    fill("orange");
+  circle(200,200,200);
+
+fill("yellow");  ellipse(260,180,50,60);
+
+
+ellipse(150,220,80,40);
+
+  circle(230,250,50)
+}
+}
