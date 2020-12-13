@@ -1,17 +1,20 @@
-//how do i get game to show in local host, its only showing the code
-let star = [];
-
+//push code to github and send to mr. sasson for problems
+//how to scale all planets individually
+//testing
+let stars = [];
 let me = [];
-
-let planet = [];
-
 let moon = [];
-
 let rocket = [];
+let planeta = [];
+let planetb = [];
+let planetc = [];
+let planetd = [];
+let planete = [];
+let planetf = [];
 
 
 function setup() {
-  createCanvas(500, 400);
+  createCanvas(1000, 700);
   me = new Rocket(width/2, 300, 3);
 }
 
@@ -20,22 +23,84 @@ function draw(){
 
     me.moveMe();
 
-  if (frameCount % 25 == 0) {
+  if (frameCount % 25 == 0) {//star
       let  s = new Star(random(0,500), 0, -3);
       stars.push(s);
       console.log(stars);
     }
 
   for (let i = 0; i < stars.length; i++) {
-          stars[i].drawStar();
           stars[i].moveStar();
-      //    stars[i].bounceStar(); set to something that makes stars disapear
     }
 
-    drawThings(Planet);
-    drawThings(Star);
-    drawThings(Moon);
-    drawThings(Me);
+    if (frameCount % 100 == 0) {//planeta
+        let  a = new Planeta(random(0,500), 0, -5);
+        planeta.push(a);
+        console.log(planeta);
+      }
+
+    for (let i = 0; i < planetb.length; i++) {
+            planeta[i].movePlaneta();
+      }
+
+    if (frameCount % 200 == 0) {//planetb
+          let  b = new Planetb(random(0,500), 0, -.5);
+          planetb.push(b);
+          console.log(planetb);
+        }
+
+    for (let i = 0; i < planetb.length; i++) {
+              planetb[i].movePlanetb();
+        }
+
+    if (frameCount % 150 == 0) {//planetc
+              let  c = new Planetc(random(0,500), 0, -2);
+              planetc.push(c);
+              console.log(planetc);
+            }
+
+    for (let i = 0; i < planetc.length; i++) {
+                  planetc[i].movePlanetc();
+            }
+    if (frameCount % 75 == 0) {//planetd
+        let  d = new Planetd(random(0,500), 0, -2);
+        planetd.push(d);
+        console.log(planetd);
+            }
+
+    for (let i = 0; i < planetd.length; i++) {
+        planetd[i].movePlanetd();
+          }
+
+    if (frameCount % 75 == 0) {//planete
+    let  e = new Planete(random(0,500), 0, -2);
+    planete.push(e);
+    console.log(planete);
+      }
+
+    for (let i = 0; i < planete.length; i++) {
+    planete[i].movePlanete();
+        }
+
+    if (frameCount % 75 == 0) {//planetf
+      let  f = new Planetf(random(0,500), 0, -2);
+      planetf.push(f);
+      console.log(planetf);
+        }
+
+    for (let i = 0; i < planetf.length; i++) {
+      planetf[i].movePlanetf();
+          }
+
+    drawThings(stars);
+    drawThings(moon);
+    drawThings(me);
+    drawThings(planeta);
+    drawThings(planetb);
+    drawThings(planetc);
+    drawThings(planetd);
+    drawThings(planete);
+    drawThings(planetf);
 }
 
 function drawThings(list) {
@@ -44,52 +109,6 @@ function drawThings(list) {
   }
 }
 
-class Planet{
-
-  constructor(x,y, speed){
-        this.x = x;
-        this.y = y;
-        this.speed = speed;
-  }
-
-  draw(){
-    strokeWeight(0.0)
-    ellipse(200,200,250,50)
-    fill(8, 39, 89)
-    ellipse(200,200,230,30)
-    fill(224, 141, 65)
-    circle(200,200,175)
-}
-
-  //movePlanet(){
-    //same code as stars
-//  }
-}
-
-class Moon{
-  constructor(x,y, speed){
-        this.x = x;
-        this.y = y;
-        this.speed = speed;
-  }
-
-  draw(){
-    strokeWeight(0.0)
-    fill(232, 230, 230)
-    ellipse(200,200,200)
-    fill(204, 198, 198)
-    ellipse(170,240,55,60);//bottom left
-    ellipse(270,200,20,50)//right
-    ellipse(160,140,50,35)//top left
-    ellipse(230,270,40,20)//bottom
-    ellipse(120,230,10,30)//far bottom left
-    ellipse(250,130,20,25)
-  }
-
-//  moveMoon(){
-//same code as stars
-//  }
-}
 
 class Rocket{
   constructor(x,y, speed){ //every avatar needs an x value, a y value, and a speed
@@ -145,7 +164,7 @@ moveMe(){
   if (keyIsDown(LEFT_ARROW)){
     this.x -= this.speed;
   }
-}
+  }
 }
 
 
@@ -158,15 +177,13 @@ class Star {
 	}
 
   draw(){//trade in code for stars later
-    stroke(0);
-    strokeWeight(1);
-    fill(50,150,60);
-    ellipse(this.x,this.y,10,10);
+    fill(70,150,200)
+    ellipse(500,300,20)
   }
 
   moveStar(){
     this.x = this.x+ this.speed;
-    this.y = this.y+ this.speed;//does this have to do with the direction the stars go?
+    this.y = this.y+ this.speed;
   }
 }
 
@@ -175,8 +192,56 @@ class Star {
         //  this.speed = -this.speed;
   //   }
 //  }
+class Moon{
+  constructor(x,y, speed){
+        this.x = x;
+        this.y = y;
+        this.speed = speed;
+  }
 
-class Planetone{
+  draw(){
+    strokeWeight(0.0)
+    fill(232, 230, 230)
+    ellipse(200,200,200)
+    fill(204, 198, 198)
+    ellipse(170,240,55,60);//bottom left
+    ellipse(270,200,20,50)//right
+    ellipse(160,140,50,35)//top left
+    ellipse(230,270,40,20)//bottom
+    ellipse(120,230,10,30)//far bottom left
+    ellipse(250,130,20,25)
+  }
+
+ moveMoon(){
+     this.x = this.x+ this.speed;
+     this.y = this.y+ this.speed;
+  }
+}
+
+class Planeta{
+
+  constructor(x,y, speed){
+        this.x = x;
+        this.y = y;
+        this.speed = speed;
+  }
+
+  draw(){
+    strokeWeight(0.0)
+    ellipse(400,400,250,50)
+    fill(8, 39, 89)
+    ellipse(400,400,230,30)
+    fill(224, 141, 65)
+    ellipse(400,400,175)
+}
+
+  movePlaneta(){
+    this.x = this.x+ this.speed;
+    this.y = this.y+ this.speed;
+  }
+}
+
+class Planetb{
 
   constructor(x,y, speed){
         this.x = x;
@@ -184,37 +249,39 @@ class Planetone{
         this.speed = speed;
       }
 
-
   draw(){
-    fill("lavender");
-    ellipse(200,200,200);
+  fill("lavender");
+  ellipse(150,150,200);
   fill("purple");
-  ellipse(180,150,90,30);
-  ellipse(230,240,90,30);
+  ellipse(130,120,40,30);
+  ellipse(180,190,40,30);
+  }
+  movePlanetb(){
+    this.x = this.x+ this.speed;
+    this.y = this.y+ this.speed;
   }
 }
 
-class Planettwo{
-
+class Planetc{
     constructor(x,y, speed){
           this.x = x;
           this.y = y;
           this.speed = speed;
         }
 
-
 draw(){
     fill("crimson");
-    ellipse(200,200,200);
-
+    ellipse(300,200,200);
     fill("pink");  ellipse(180,250,100,40);
-
-
-    ellipse(230,160,90,30);
+    ellipse(330,160,90,30);
+  }
+  movePlanetc(){
+    this.x = this.x+ this.speed;
+    this.y = this.y+ this.speed;
   }
 }
 
-class Planetthree{
+class Planetd{
 
   constructor(x,y, speed){
         this.x = x;
@@ -223,15 +290,20 @@ class Planetthree{
   }
 
   draw(){
-    fill("turquoise");
-  ellipse(200,200,200);
-  fill("blue");  ellipse(160,180,50,60);
-  ellipse(250,220,80,40);
-  circle(160,250,50)
+  fill("turquoise");
+  ellipse(200,400,200);
+  fill("blue");
+  ellipse(160,380,50,60);
+  ellipse(250,420,80,40);
+  ellipse(160,450,50)
+  }
+  movePlanetd(){
+    this.x = this.x+ this.speed;
+    this.y = this.y+ this.speed;
   }
 }
 
-class Planetfour{
+class Planete{
 
   constructor(x,y, speed){
         this.x = x;
@@ -240,15 +312,21 @@ class Planetfour{
   }
 
   draw(){
-    fill("yellow");
-  circle(200,200,200);
-  fill("gold");  ellipse(260,180,50,40);
-  ellipse(160,220,40,100);
-  circle(220,250,50)
+  fill("yellow");
+  ellipse(250,200,200);
+  fill("gold");
+  ellipse(310,180,50,40);
+  ellipse(210,220,40,100);
+  ellipse(270,250,50)
+  }
+
+  movePlanete(){
+    this.x = this.x+ this.speed;
+    this.y = this.y+ this.speed;
   }
 }
 
-class Planetfive{
+class Planetf{
 
   constructor(x,y, speed){
         this.x = x;
@@ -257,14 +335,15 @@ class Planetfive{
   }
 
   draw(){
-    fill("orange");
-  circle(200,200,200);
-
-fill("yellow");  ellipse(260,180,50,60);
-
-
-ellipse(150,220,80,40);
-
-  circle(230,250,50)
-}
+  fill("orange");
+  ellipse(200,350,200);
+  fill("yellow");
+  ellipse(260,330,50,60);
+  ellipse(150,370,80,40);
+  ellipse(230,400,50)
+  }
+  movePlanetf(){
+    this.x = this.x+ this.speed;
+    this.y = this.y+ this.speed;
+  }
 }
