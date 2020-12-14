@@ -55,7 +55,7 @@ function draw(){
         }
 
     if (frameCount % 350 == 0) {//planetc
-              let  c = new Planetc(random(0,800), 5, 5);
+              let  c = new Planetc(random(0,800), 5, 2);
               planetc.push(c);
               console.log(planetc);
             }
