@@ -23,7 +23,7 @@ function draw(){
 
     me.moveMe();
 
-  if (frameCount % 25 == 0) {//star
+  if (frameCount % 100 == 0) {//star
       let  s = new Star(random(0,500), 0, -3);
       stars.push(s);
       console.log(stars);
@@ -33,8 +33,8 @@ function draw(){
           stars[i].moveStar();
     }
 
-    if (frameCount % 100 == 0) {//planeta
-        let  a = new Planeta(random(0,500), 0, -5);
+    if (frameCount % 200 == 0) {//planeta
+        let  a = new Planeta(random(0,1000), 5, 2);
         planeta.push(a);
         console.log(planeta);
       }
@@ -176,9 +176,8 @@ class Star {
     this.speed = speed;
 	}
 
-  draw(){//trade in code for stars later
-    fill(70,150,200)
-    ellipse(500,300,20)
+  draw(){
+  text("⭐",this.x,this.y);
   }
 
   moveStar(){
@@ -228,11 +227,11 @@ class Planeta{
 
   draw(){
     strokeWeight(0.0)
-    ellipse(400,400,250,50)
+    ellipse(this.x,this.y,250,50)
     fill(8, 39, 89)
-    ellipse(400,400,230,30)
+    ellipse(this.x,this.y,230,30)
     fill(224, 141, 65)
-    ellipse(400,400,175)
+    ellipse(this.x,this.y,175)
 }
 
   movePlaneta(){
