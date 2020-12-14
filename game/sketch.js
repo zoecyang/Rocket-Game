@@ -2,9 +2,8 @@
 //how to scale all planets individually
 //testing
 let stars = [];
-let me = [];
+let me;
 let moon = [];
-let rocket = [];
 let planeta = [];
 let planetb = [];
 let planetc = [];
@@ -21,9 +20,10 @@ function setup() {
 function draw(){
     background(8, 39, 89);
 
+    me.drawMe();
     me.moveMe();
 
-  if (frameCount % 50 == 0) {//star
+  if (frameCount % 75 == 0) {//star
       let  s = new Star(random(0,1000), 10, 2);
       stars.push(s);
       console.log(stars);
@@ -33,18 +33,18 @@ function draw(){
           stars[i].moveStar();
     }
 
-    if (frameCount % 250 == 0) {//planeta
-        let  a = new Planeta(random(0,1000), 5, 2);
+    if (frameCount % 200 == 0) {//planeta
+        let  a = new Planeta(random(0,1000), 0, 2);
         planeta.push(a);
         console.log(planeta);
       }
 
-    for (let i = 0; i < planetb.length; i++) {
+    for (let i = 0; i < planeta.length; i++) {
             planeta[i].movePlaneta();
       }
 
-    if (frameCount % 400 == 0) {//planetb
-          let  b = new Planetb(random(0,1000), 5, .5);
+    if (frameCount % 300 == 0) {//planetb
+          let  b = new Planetb(random(0,1000), 5, 2);
           planetb.push(b);
           console.log(planetb);
         }
@@ -53,8 +53,8 @@ function draw(){
               planetb[i].movePlanetb();
         }
 
-    if (frameCount % 300 == 0) {//planetc
-              let  c = new Planetc(random(0,1000), 5, 2);
+    if (frameCount % 350 == 0) {//planetc
+              let  c = new Planetc(random(0,1000), 5, 5);
               planetc.push(c);
               console.log(planetc);
             }
@@ -62,7 +62,7 @@ function draw(){
     for (let i = 0; i < planetc.length; i++) {
                   planetc[i].movePlanetc();
             }
-    if (frameCount % 500 == 0) {//planetd
+    if (frameCount % 250 == 0) {//planetd
         let  d = new Planetd(random(0,1000), 5, 2);
         planetd.push(d);
         console.log(planetd);
@@ -72,7 +72,7 @@ function draw(){
         planetd[i].movePlanetd();
           }
 
-    if (frameCount % 200 == 0) {//planete
+    if (frameCount % 150 == 0) {//planete
     let  e = new Planete(random(0,1000), 5, 2);
     planete.push(e);
     console.log(planete);
@@ -82,7 +82,7 @@ function draw(){
     planete[i].movePlanete();
         }
 
-    if (frameCount % 150 == 0) {//planetf
+    if (frameCount % 315 == 0) {//planetf
       let  f = new Planetf(random(0,1000), 5, 2);
       planetf.push(f);
       console.log(planetf);
@@ -118,23 +118,25 @@ class Rocket{
   }
 
 draw(){
+  push()
+  translate(this.x,this.y)
   scale(.5)
   strokeWeight(1);
   stroke(51);
   fill(6, 24, 145);
-  ellipse(250,160,80);//window for avatar
+  ellipse(this.x,this.y,80);//window for avatar
   fill("white");
-  ellipse(247,160,20); //body
+  ellipse(this.x,this.y,20); //body
   fill(255, 201, 255);
   arc(200, 170, 100, 260, 1.589, HALF_PI);//rocket
   //arc(50, 50, 80, 80, 0, PI + QUARTER_PI, CHORD);
   //arc(200, 100, 80, 80, -100, PI + QUARTER_PI, PIE);
   fill(255, 226, 201);
-  ellipse(270,160,25);//head
+  ellipse(this.x,this.y,25);//head
 
   fill("white");
-  ellipse(200,130,40);// window on rocket top
-  ellipse(200,185,40); //window on rocket middle (last window is 6 lines lower)
+  ellipse(this.x,this.y,40);// window on rocket top
+  ellipse(this.x,this.y,40); //window on rocket middle (last window is 6 lines lower)
 
   noStroke();
   fill(255, 201, 255);
@@ -142,13 +144,13 @@ draw(){
   strokeWeight(1);
   stroke(51);
   fill("white");
-  ellipse(200,240,40);//window on rocket last
+  ellipse(this.x,this.y,40);//window on rocket last
 
   fill("orange");
   triangle(130, 345, 155, 390, 174, 345);
   triangle(175, 345, 200, 390, 222, 345);
   triangle(222, 345, 245, 390, 269, 345);
-    //code for rocket ship
+  pop()
   }
 
 moveMe(){
@@ -257,35 +259,35 @@ class Planetb{
   fill("purple");
   ellipse(this.x,this.y,40,30);
   ellipse(this.x,this.y,40,30);
+  pop()
   }
   movePlanetb(){
     this.y = this.y+ this.speed;
-    pop()
   }
 }
 
 class Planetc{
-    constructor(x,y, speed){
+  constructor(x,y, speed){
           this.x = x;
           this.y = y;
           this.speed = speed;
         }
 
-draw(){
-    push()
-    translate(this.x,this.y)
-    scale(.75)
-    fill("crimson");
-    ellipse(this.x,this.y,200);
-    fill("pink");
-    ellipse(this.x,this.y,100,40);
-    ellipse(this.x,this.y,90,30);
-    pop()
-  }
-  movePlanetc(){
-    this.y = this.y+ this.speed;
-  }
-}
+        draw(){
+          push()
+          translate(this.x,this.y)
+          scale(.75)
+          fill("crimson");
+          ellipse(this.x,this.y,200);
+          fill("pink");
+          ellipse(this.x,this.y,100,40);
+          ellipse(this.x,this.y,90,30);
+          pop()
+        }
+        movePlanetc(){
+          this.y = this.y+ this.speed;
+        }
+      }
 
 class Planetd{
 
@@ -339,7 +341,6 @@ class Planete{
 }
 
 class Planetf{
-
   constructor(x,y, speed){
         this.x = x;
         this.y = y;
