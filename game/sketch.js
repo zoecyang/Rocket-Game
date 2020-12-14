@@ -13,28 +13,29 @@ let planetf = [];
 
 
 function setup() {
-  createCanvas(1000, 700);
+  createCanvas(800, 700);
   me = new Rocket(width/2, 300, 3);
 }
 
 function draw(){
     background(8, 39, 89);
 
-    me.drawMe();
+    me.draw();
     me.moveMe();
 
   if (frameCount % 75 == 0) {//star
-      let  s = new Star(random(0,1000), 10, 2);
+      let  s = new Star(random(0,800), 10, 2);
       stars.push(s);
       console.log(stars);
     }
 
   for (let i = 0; i < stars.length; i++) {
           stars[i].moveStar();
+          stars[i].bounceStar();
     }
 
     if (frameCount % 200 == 0) {//planeta
-        let  a = new Planeta(random(0,1000), 0, 2);
+        let  a = new Planeta(random(0,800), 0, 2);
         planeta.push(a);
         console.log(planeta);
       }
@@ -44,7 +45,7 @@ function draw(){
       }
 
     if (frameCount % 300 == 0) {//planetb
-          let  b = new Planetb(random(0,1000), 5, 2);
+          let  b = new Planetb(random(0,800), 5, 2);
           planetb.push(b);
           console.log(planetb);
         }
@@ -54,7 +55,7 @@ function draw(){
         }
 
     if (frameCount % 350 == 0) {//planetc
-              let  c = new Planetc(random(0,1000), 5, 5);
+              let  c = new Planetc(random(0,800), 5, 5);
               planetc.push(c);
               console.log(planetc);
             }
@@ -63,7 +64,7 @@ function draw(){
                   planetc[i].movePlanetc();
             }
     if (frameCount % 250 == 0) {//planetd
-        let  d = new Planetd(random(0,1000), 5, 2);
+        let  d = new Planetd(random(0,800), 5, 2);
         planetd.push(d);
         console.log(planetd);
             }
@@ -73,7 +74,7 @@ function draw(){
           }
 
     if (frameCount % 150 == 0) {//planete
-    let  e = new Planete(random(0,1000), 5, 2);
+    let  e = new Planete(random(0,800), 5, 2);
     planete.push(e);
     console.log(planete);
       }
@@ -83,7 +84,7 @@ function draw(){
         }
 
     if (frameCount % 315 == 0) {//planetf
-      let  f = new Planetf(random(0,1000), 5, 2);
+      let  f = new Planetf(random(0,800), 5, 2);
       planetf.push(f);
       console.log(planetf);
         }
@@ -184,14 +185,15 @@ class Star {
 
   moveStar(){
     this.y = this.y+ this.speed;
-  }
 }
 
-  //bounceStars(){ set to something that makes stars disapear
-  //  if (this.x >= me.x-10 && this.x <= me.x+10 && this.y > me.y-40 && this.y < me.y+80){
-        //  this.speed = -this.speed;
-  //   }
-//  }
+  bounceStar(){
+   if (this.x >= me.x-10 && this.x <= me.x+10 && this.y > me.y-10 && this.y < me.y+10){
+          this.speed = -this.speed;
+     }
+   }
+}
+
 class Moon{
   constructor(x,y, speed){
         this.x = x;
