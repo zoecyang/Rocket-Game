@@ -224,12 +224,15 @@ class Planeta{
   }
 
   draw(){
+    push()
+    translate(this.x,this.y)
     strokeWeight(0.0)
     ellipse(this.x,this.y,250,50)
     fill(8, 39, 89)
     ellipse(this.x,this.y,230,30)
     fill(224, 141, 65)
     ellipse(this.x,this.y,175)
+    pop()
 }
 
   movePlaneta(){
@@ -246,7 +249,9 @@ class Planetb{
       }
 
   draw(){
-    scale(.5)
+  push()
+  translate(this.x,this.y)
+  scale(.5)
   fill("lavender");
   ellipse(this.x,this.y,200);
   fill("purple");
@@ -255,6 +260,7 @@ class Planetb{
   }
   movePlanetb(){
     this.y = this.y+ this.speed;
+    pop()
   }
 }
 
@@ -266,12 +272,15 @@ class Planetc{
         }
 
 draw(){
+    push()
+    translate(this.x,this.y)
     scale(.75)
     fill("crimson");
     ellipse(this.x,this.y,200);
     fill("pink");
     ellipse(this.x,this.y,100,40);
     ellipse(this.x,this.y,90,30);
+    pop()
   }
   movePlanetc(){
     this.y = this.y+ this.speed;
@@ -287,6 +296,8 @@ class Planetd{
   }
 
   draw(){
+  translate(this.x,this.y)
+  push()
   scale(.35)
   fill("turquoise");
   ellipse(this.x,this.y,200);
@@ -294,6 +305,7 @@ class Planetd{
   ellipse(this.x,this.y,50,60);
   ellipse(this.x,this.y,80,40);
   ellipse(this.x,this.y,50)
+  pop()
   }
   movePlanetd(){
     this.y = this.y+ this.speed;
@@ -309,6 +321,8 @@ class Planete{
   }
 
   draw(){
+  translate(this.x,this.y)
+  push()
   scale(.25)
   fill("yellow");
   ellipse(this.x,this.y,200);
@@ -316,6 +330,7 @@ class Planete{
   ellipse(this.x,this.y,50,40);
   ellipse(this.x,this.y,40,100);
   ellipse(this.x,this.y,50)
+  pop()
   }
 
   movePlanete(){
@@ -332,12 +347,15 @@ class Planetf{
   }
 
   draw(){
+  push()
+  translate(this.x,this.y)
   fill("orange");
   ellipse(this.x,this.y,200);
   fill("yellow");
   ellipse(this.x,this.y,50,60);
   ellipse(this.x,this.y,80,40);
   ellipse(this.x,this.y,50)
+  pop()
   }
   movePlanetf(){
     this.y = this.y+ this.speed;
