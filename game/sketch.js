@@ -23,8 +23,8 @@ function draw(){
 
     me.moveMe();
 
-  if (frameCount % 100 == 0) {//star
-      let  s = new Star(random(0,500), 0, -3);
+  if (frameCount % 50 == 0) {//star
+      let  s = new Star(random(0,1000), 10, 2);
       stars.push(s);
       console.log(stars);
     }
@@ -33,7 +33,7 @@ function draw(){
           stars[i].moveStar();
     }
 
-    if (frameCount % 200 == 0) {//planeta
+    if (frameCount % 250 == 0) {//planeta
         let  a = new Planeta(random(0,1000), 5, 2);
         planeta.push(a);
         console.log(planeta);
@@ -43,8 +43,8 @@ function draw(){
             planeta[i].movePlaneta();
       }
 
-    if (frameCount % 200 == 0) {//planetb
-          let  b = new Planetb(random(0,500), 0, -.5);
+    if (frameCount % 400 == 0) {//planetb
+          let  b = new Planetb(random(0,1000), 5, .5);
           planetb.push(b);
           console.log(planetb);
         }
@@ -53,8 +53,8 @@ function draw(){
               planetb[i].movePlanetb();
         }
 
-    if (frameCount % 150 == 0) {//planetc
-              let  c = new Planetc(random(0,500), 0, -2);
+    if (frameCount % 300 == 0) {//planetc
+              let  c = new Planetc(random(0,1000), 5, 2);
               planetc.push(c);
               console.log(planetc);
             }
@@ -62,8 +62,8 @@ function draw(){
     for (let i = 0; i < planetc.length; i++) {
                   planetc[i].movePlanetc();
             }
-    if (frameCount % 75 == 0) {//planetd
-        let  d = new Planetd(random(0,500), 0, -2);
+    if (frameCount % 500 == 0) {//planetd
+        let  d = new Planetd(random(0,1000), 5, 2);
         planetd.push(d);
         console.log(planetd);
             }
@@ -72,8 +72,8 @@ function draw(){
         planetd[i].movePlanetd();
           }
 
-    if (frameCount % 75 == 0) {//planete
-    let  e = new Planete(random(0,500), 0, -2);
+    if (frameCount % 200 == 0) {//planete
+    let  e = new Planete(random(0,1000), 5, 2);
     planete.push(e);
     console.log(planete);
       }
@@ -82,8 +82,8 @@ function draw(){
     planete[i].movePlanete();
         }
 
-    if (frameCount % 75 == 0) {//planetf
-      let  f = new Planetf(random(0,500), 0, -2);
+    if (frameCount % 150 == 0) {//planetf
+      let  f = new Planetf(random(0,1000), 5, 2);
       planetf.push(f);
       console.log(planetf);
         }
@@ -181,7 +181,6 @@ class Star {
   }
 
   moveStar(){
-    this.x = this.x+ this.speed;
     this.y = this.y+ this.speed;
   }
 }
@@ -201,18 +200,17 @@ class Moon{
   draw(){
     strokeWeight(0.0)
     fill(232, 230, 230)
-    ellipse(200,200,200)
+    ellipse(this.x,this.y,200)
     fill(204, 198, 198)
-    ellipse(170,240,55,60);//bottom left
-    ellipse(270,200,20,50)//right
-    ellipse(160,140,50,35)//top left
-    ellipse(230,270,40,20)//bottom
-    ellipse(120,230,10,30)//far bottom left
-    ellipse(250,130,20,25)
+    ellipse(this.x,this.y,55,60);//bottom left
+    ellipse(this.x,this.y,20,50)//right
+    ellipse(this.x,this.y,35)//top left
+    ellipse(this.x,this.y,20)//bottom
+    ellipse(this.x,this.y,30)//far bottom left
+    ellipse(this.x,this.y,25)
   }
 
  moveMoon(){
-     this.x = this.x+ this.speed;
      this.y = this.y+ this.speed;
   }
 }
@@ -235,7 +233,6 @@ class Planeta{
 }
 
   movePlaneta(){
-    this.x = this.x+ this.speed;
     this.y = this.y+ this.speed;
   }
 }
@@ -249,14 +246,14 @@ class Planetb{
       }
 
   draw(){
+    scale(.5)
   fill("lavender");
-  ellipse(150,150,200);
+  ellipse(this.x,this.y,200);
   fill("purple");
-  ellipse(130,120,40,30);
-  ellipse(180,190,40,30);
+  ellipse(this.x,this.y,40,30);
+  ellipse(this.x,this.y,40,30);
   }
   movePlanetb(){
-    this.x = this.x+ this.speed;
     this.y = this.y+ this.speed;
   }
 }
@@ -269,13 +266,14 @@ class Planetc{
         }
 
 draw(){
+    scale(.75)
     fill("crimson");
-    ellipse(300,200,200);
-    fill("pink");  ellipse(180,250,100,40);
-    ellipse(330,160,90,30);
+    ellipse(this.x,this.y,200);
+    fill("pink");
+    ellipse(this.x,this.y,100,40);
+    ellipse(this.x,this.y,90,30);
   }
   movePlanetc(){
-    this.x = this.x+ this.speed;
     this.y = this.y+ this.speed;
   }
 }
@@ -289,15 +287,15 @@ class Planetd{
   }
 
   draw(){
+  scale(.35)
   fill("turquoise");
-  ellipse(200,400,200);
+  ellipse(this.x,this.y,200);
   fill("blue");
-  ellipse(160,380,50,60);
-  ellipse(250,420,80,40);
-  ellipse(160,450,50)
+  ellipse(this.x,this.y,50,60);
+  ellipse(this.x,this.y,80,40);
+  ellipse(this.x,this.y,50)
   }
   movePlanetd(){
-    this.x = this.x+ this.speed;
     this.y = this.y+ this.speed;
   }
 }
@@ -311,16 +309,16 @@ class Planete{
   }
 
   draw(){
+  scale(.25)
   fill("yellow");
-  ellipse(250,200,200);
+  ellipse(this.x,this.y,200);
   fill("gold");
-  ellipse(310,180,50,40);
-  ellipse(210,220,40,100);
-  ellipse(270,250,50)
+  ellipse(this.x,this.y,50,40);
+  ellipse(this.x,this.y,40,100);
+  ellipse(this.x,this.y,50)
   }
 
   movePlanete(){
-    this.x = this.x+ this.speed;
     this.y = this.y+ this.speed;
   }
 }
@@ -335,14 +333,13 @@ class Planetf{
 
   draw(){
   fill("orange");
-  ellipse(200,350,200);
+  ellipse(this.x,this.y,200);
   fill("yellow");
-  ellipse(260,330,50,60);
-  ellipse(150,370,80,40);
-  ellipse(230,400,50)
+  ellipse(this.x,this.y,50,60);
+  ellipse(this.x,this.y,80,40);
+  ellipse(this.x,this.y,50)
   }
   movePlanetf(){
-    this.x = this.x+ this.speed;
     this.y = this.y+ this.speed;
   }
 }
