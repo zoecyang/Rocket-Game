@@ -14,7 +14,7 @@ let planetf = [];
 
 function setup() {
   createCanvas(800, 700);
-  me = new Rocket(width/2, 300, 3);
+  me = new Rocket(width/2, 300, 5);
 }
 
 function draw(){
@@ -24,7 +24,7 @@ function draw(){
     me.moveMe();
 
   if (frameCount % 75 == 0) {//star
-      let  s = new Star(random(0,800), 10, 2);
+      let  s = new Star(random(0,800), 10, 1);
       stars.push(s);
       console.log(stars);
     }
@@ -33,7 +33,8 @@ function draw(){
           stars[i].moveStar();
           stars[i].disapearStar();
           if (stars[i].x >= me.x-10 && stars[i].x <= me.x+10 && stars[i].y > me.y-10 && stars[i].y < me.y+10){
-                 stars.splice(i,1)
+                print("hi")
+                stars.splice(i,1)
             }
     }
 
@@ -128,19 +129,19 @@ draw(){
   strokeWeight(1);
   stroke(51);
   fill(6, 24, 145);
-  ellipse(this.x,this.y,80);//window for avatar
+  ellipse(250,160,80);//window for avatar
   fill("white");
-  ellipse(this.x,this.y,20); //body
+  ellipse(247,160,20); //body
   fill(255, 201, 255);
   arc(200, 170, 100, 260, 1.589, HALF_PI);//rocket
   //arc(50, 50, 80, 80, 0, PI + QUARTER_PI, CHORD);
   //arc(200, 100, 80, 80, -100, PI + QUARTER_PI, PIE);
   fill(255, 226, 201);
-  ellipse(this.x,this.y,25);//head
+  ellipse(270,160,25);//head
 
   fill("white");
-  ellipse(this.x,this.y,40);// window on rocket top
-  ellipse(this.x,this.y,40); //window on rocket middle (last window is 6 lines lower)
+  ellipse(200,130,40);// window on rocket top
+  ellipse(200,185,40); //window on rocket middle (last window is 6 lines lower)
 
   noStroke();
   fill(255, 201, 255);
@@ -148,12 +149,13 @@ draw(){
   strokeWeight(1);
   stroke(51);
   fill("white");
-  ellipse(this.x,this.y,40);//window on rocket last
+  ellipse(200,240,40);//window on rocket last
 
   fill("orange");
   triangle(130, 345, 155, 390, 174, 345);
   triangle(175, 345, 200, 390, 222, 345);
   triangle(222, 345, 245, 390, 269, 345);
+
   pop()
   }
 
