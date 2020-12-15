@@ -32,6 +32,9 @@ function draw(){
   for (let i = 0; i < stars.length; i++) {
           stars[i].moveStar();
           stars[i].disapearStar();
+          if (stars[i].x >= me.x-10 && stars[i].x <= me.x+10 && stars[i].y > me.y-10 && stars[i].y < me.y+10){
+                 stars.splice(i,1)
+            }
     }
 
     if (frameCount % 200 == 0) {//planeta
@@ -180,10 +183,9 @@ class Star {
 	}
 
   draw(){
-  push()
-  translate(this.x,this.y)
+  push(0,0)
   scale(2.0)
-  text("⭐",this.x,this.y);
+  text("⭐",this.x, this.y);
   pop()
   }
 
@@ -192,9 +194,7 @@ class Star {
 }
 
   disapearStar(){
-   if (this.x >= me.x-10 && this.x <= me.x+10 && this.y > me.y-10 && this.y < me.y+10){
-          stars.splice(this.x,this.y)
-     }
+
    }
 }
 
