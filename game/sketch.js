@@ -31,7 +31,7 @@ function draw(){
 
   for (let i = 0; i < stars.length; i++) {
           stars[i].moveStar();
-          stars[i].bounceStar();
+          stars[i].disapearStar();
     }
 
     if (frameCount % 200 == 0) {//planeta
@@ -83,7 +83,7 @@ function draw(){
     planete[i].movePlanete();
         }
 
-    if (frameCount % 315 == 0) {//planetf
+    if (frameCount % 300 == 0) {//planetf
       let  f = new Planetf(random(0,800), 5, 2);
       planetf.push(f);
       console.log(planetf);
@@ -180,16 +180,20 @@ class Star {
 	}
 
   draw(){
+  push()
+  translate(this.x,this.y)
+  scale(2.0)
   text("⭐",this.x,this.y);
+  pop()
   }
 
   moveStar(){
     this.y = this.y+ this.speed;
 }
 
-  bounceStar(){
+  disapearStar(){
    if (this.x >= me.x-10 && this.x <= me.x+10 && this.y > me.y-10 && this.y < me.y+10){
-          this.speed = -this.speed;
+          stars.splice(this.x,this.y)
      }
    }
 }
