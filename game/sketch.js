@@ -32,14 +32,14 @@ function draw(){
   for (let i = 0; i < stars.length; i++) {
           stars[i].moveStar();
           stars[i].disapearStar();
-          if (stars[i].x >= me.x-10 && stars[i].x <= me.x+10 && stars[i].y > me.y-10 && stars[i].y < me.y+10){
+          if (stars[i].x >= me.x-20+250 && stars[i].x <= me.x+20+250 && stars[i].y > me.y-20+160 && stars[i].y < me.y+20+160){
                 print("hi")
                 stars.splice(i,1)
             }
     }
 
     if (frameCount % 200 == 0) {//planeta
-        let  a = new Planeta(random(0,800), 0, 2);
+        let  a = new Planeta(random(0,800), -10, 2);
         planeta.push(a);
         console.log(planeta);
       }
@@ -49,7 +49,7 @@ function draw(){
       }
 
     if (frameCount % 300 == 0) {//planetb
-          let  b = new Planetb(random(0,800), 5, 2);
+          let  b = new Planetb(random(0,800), -10, 2);
           planetb.push(b);
           console.log(planetb);
         }
@@ -59,7 +59,7 @@ function draw(){
         }
 
     if (frameCount % 350 == 0) {//planetc
-              let  c = new Planetc(random(0,800), 5, 2);
+              let  c = new Planetc(random(0,800), -10, 2);
               planetc.push(c);
               console.log(planetc);
             }
@@ -68,7 +68,7 @@ function draw(){
                   planetc[i].movePlanetc();
             }
     if (frameCount % 250 == 0) {//planetd
-        let  d = new Planetd(random(0,800), 5, 2);
+        let  d = new Planetd(random(0,800), -10, 2);
         planetd.push(d);
         console.log(planetd);
             }
@@ -78,7 +78,7 @@ function draw(){
           }
 
     if (frameCount % 150 == 0) {//planete
-    let  e = new Planete(random(0,800), 5, 2);
+    let  e = new Planete(random(0,800), -10, 2);
     planete.push(e);
     console.log(planete);
       }
@@ -88,7 +88,7 @@ function draw(){
         }
 
     if (frameCount % 300 == 0) {//planetf
-      let  f = new Planetf(random(0,800), 5, 2);
+      let  f = new Planetf(random(0,800), -10, 2);
       planetf.push(f);
       console.log(planetf);
         }
@@ -160,18 +160,12 @@ draw(){
   }
 
 moveMe(){
-  if (keyIsDown(UP_ARROW)) { //if you hold the up arrow, move up by speed
-     this.y -= this.speed;
-  }
-
-
   if (keyIsDown(RIGHT_ARROW)){
     this.x += this.speed;
   }
 
   if (keyIsDown(LEFT_ARROW)){
     this.x -= this.speed;
-  }
   }
 }
 
