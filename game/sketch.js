@@ -32,7 +32,9 @@ function draw(){
   for (let i = 0; i < stars.length; i++) {
           stars[i].moveStar();
           stars[i].disapearStar();
-          if (stars[i].x >= me.x-20+250 && stars[i].x <= me.x+20+250 && stars[i].y > me.y-20+160 && stars[i].y < me.y+20+160){
+          fill(0);
+          ellipse(me.x+100, me.y+30, 20);
+          if (stars[i].x >= me.x-20+100 && stars[i].x <= me.x+20+100 && stars[i].y > me.y-20+30 && stars[i].y < me.y+20+30){
                 print("hi")
                 stars.splice(i,1)
             }
@@ -168,9 +170,10 @@ moveMe(){
     this.x -= this.speed;
   }
 }
+}
 
 
-class Star {
+class Star{
 
   constructor(x,y, speed){
 		this.x = x;
@@ -190,9 +193,9 @@ class Star {
 }
 
   disapearStar(){
-
-   }
+  }
 }
+
 
 class Moon{
   constructor(x,y, speed){
