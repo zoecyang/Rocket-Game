@@ -33,9 +33,8 @@ function draw(){
           stars[i].moveStar();
           stars[i].disapearStar();
           fill(0);
-          ellipse(me.x+100, me.y+30, 20);
-          if (stars[i].x >= me.x-20+100 && stars[i].x <= me.x+20+100 && stars[i].y > me.y-20+30 && stars[i].y < me.y+20+30){
-                print("hi")
+          ellipse(me.x+100, me.y+30, 40);
+          if (stars[i].x >= me.x-40+100 && stars[i].x <= me.x+40+100 && stars[i].y > me.y-40+30 && stars[i].y < me.y+40+30){
                 stars.splice(i,1)
             }
     }
