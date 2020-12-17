@@ -10,7 +10,7 @@ let planetc = [];
 let planetd = [];
 let planete = [];
 let planetf = [];
-
+fuel = 10
 
 function setup() {
   createCanvas(800, 700);
@@ -35,8 +35,15 @@ function draw(){
           fill(0);
           if (stars[i].x >= me.x-40+100 && stars[i].x <= me.x+40+100 && stars[i].y > me.y-80+30 && stars[i].y < me.y+80+30){
                 stars.splice(i,1)
+                var fuel++1
             }
     }
+
+    if (fuel<7){
+      noLoop();
+      display("you lost!")
+    }
+
 
     if (frameCount % 200 == 0) {//planeta
         let  a = new Planeta(random(0,800), -10, 2);
