@@ -24,7 +24,7 @@ function draw(){
     me.moveMe();
 
   if (frameCount % 100 == 0) {//star
-      let  s = new Star(random(0,800), 10, 1);
+      let  s = new Star(random(0,800), 10, 2);
       stars.push(s);
       console.log(stars);
     }
@@ -192,7 +192,7 @@ class Star{
   text("⭐",this.x/2, this.y/2);
   pop()
   if (frameCount == 700){
-    let fuel = fuel-1
+     fuel = fuel-1
   }
   }
 
