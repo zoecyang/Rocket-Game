@@ -32,10 +32,11 @@ function draw(){
   for (let i = 0; i < stars.length; i++) {
           stars[i].moveStar();
           stars[i].disapearStar();
+          star[i].pointStar();
           fill(0);
           if (stars[i].x >= me.x-40+100 && stars[i].x <= me.x+40+100 && stars[i].y > me.y-80+30 && stars[i].y < me.y+80+30){
                 stars.splice(i,1)
-                var fuel++1
+                var fuel+1
             }
     }
 
@@ -198,6 +199,11 @@ class Star{
 }
 
   disapearStar(){
+  }
+
+  pointStar(){
+    if (frameCount = 700);
+      fuel-1
   }
 }
 
