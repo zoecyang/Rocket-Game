@@ -23,7 +23,7 @@ function draw(){
     me.draw();
     me.moveMe();
 
-  if (frameCount % 75 == 0) {//star
+  if (frameCount % 100 == 0) {//star
       let  s = new Star(random(0,800), 10, 1);
       stars.push(s);
       console.log(stars);
@@ -33,8 +33,7 @@ function draw(){
           stars[i].moveStar();
           stars[i].disapearStar();
           fill(0);
-          ellipse(me.x+100, me.y+30, 40);
-          if (stars[i].x >= me.x-40+100 && stars[i].x <= me.x+40+100 && stars[i].y > me.y-40+30 && stars[i].y < me.y+40+30){
+          if (stars[i].x >= me.x-40+100 && stars[i].x <= me.x+40+100 && stars[i].y > me.y-80+30 && stars[i].y < me.y+80+30){
                 stars.splice(i,1)
             }
     }
@@ -183,7 +182,7 @@ class Star{
   draw(){
   push(0,0)
   scale(2.0)
-  text("⭐",this.x, this.y);
+  text("⭐",this.x/2, this.y/2);
   pop()
   }
 
